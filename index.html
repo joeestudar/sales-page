@@ -508,8 +508,8 @@
                     <li>Source files (HTML/CSS)</li>
                     <li>1 round of revisions</li>
                 </ul>
-                <div id="paypal-button-pricing"></div>
-                <p style="margin-top:1rem; color: var(--text-secondary); font-size: 0.85rem;">🔒 Secure payment via PayPal • Instant confirmation</p>
+                <button id="buy-pricing" class="btn btn-primary" style="width:100%; font-size:1.3rem; padding:1.2rem;">BUY NOW — $40</button>
+                <p style="margin-top:1rem; color: var(--text-secondary); font-size: 0.85rem;">🔒 Secure payment via Stripe • Cards accepted worldwide</p>
             </div>
         </div>
     </section>
@@ -555,24 +555,8 @@
                 </button>
             </form>
             
-            <!-- Step 2: PayPal Payment (hidden until form submitted) -->
-            <div id="payment-section" style="display:none; max-width:500px; margin:2rem auto 0; text-align:center;">
-                <div style="background:var(--bg-card); border:2px solid var(--primary); border-radius:16px; padding:2rem;">
-                    <h3 style="margin-bottom:0.5rem;">🔒 Pay Securely with PayPal</h3>
-                    <p style="color:var(--text-secondary); margin-bottom:1.5rem; font-size:0.95rem;">One-time payment of <strong style="color:var(--primary);">$40 USD</strong></p>
-                    <div id="paypal-button-order"></div>
-                    <p style="color:var(--text-secondary); font-size:0.8rem; margin-top:1rem;">After payment, we'll email you within 2 hours to confirm details.</p>
-                </div>
-            </div>
-            
-            <!-- Step 3: Confirmation (hidden until payment) -->
-            <div id="confirmation-section" style="display:none; max-width:500px; margin:2rem auto 0; text-align:center;">
-                <div style="background:var(--bg-card); border:2px solid #22c55e; border-radius:16px; padding:2rem;">
-                    <div style="font-size:3rem; margin-bottom:1rem;">✅</div>
-                    <h3 style="color:#22c55e; margin-bottom:0.5rem;">Payment Successful!</h3>
-                    <p style="color:var(--text-secondary);">We've received your order. Check your email for confirmation and next steps. Your landing page will be ready in 24-48 hours.</p>
-                </div>
-            </div>
+            <!-- After form submit, redirects to Stripe Checkout -->
+            <!-- After payment, Stripe redirects to success.html -->
         </div>
     </section>
 
@@ -599,7 +583,7 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">How do I pay? <span>+</span></div>
-                    <div class="faq-answer">We accept PayPal (credit/debit cards accepted too — no PayPal account needed). Just click "Pay Now", complete the payment, and we start building immediately. You'll receive a confirmation email within minutes.</div>
+                    <div class="faq-answer">We accept all major credit/debit cards via Stripe (Visa, Mastercard, Amex, Discover). Just click "Buy Now", complete the secure payment, and we start building immediately. You'll receive a confirmation email within minutes.</div>
                 </div>
             </div>
         </div>
@@ -618,8 +602,8 @@
         <p style="margin-top:0.5rem;">Questions? Email us at <a href="mailto:contact@example.com" style="color:var(--primary);">contact@example.com</a></p>
     </footer>
 
-    <!-- PayPal SDK -->
-    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD&intent=capture" data-sdk-integration-source="button-factory"></script>
+    <!-- Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
     
     <script>
         // FAQ Accordion
@@ -641,36 +625,29 @@
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
         
-        // ===== PAYPAL INTEGRATION =====
-        const ORDER_AMOUNT = '40.00';
-        let customerData = {};
-        
-        // Render PayPal button in pricing section
-        paypal.Buttons({
-            style: { layout: 'vertical', color: 'red', shape: 'rect', label: 'pay', height: 50 },
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: { value: ORDER_AMOUNT },
-                        description: 'Landing Page - Professional Template'
-                    }]
-                });
-            },
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    // Pricing section payment success
-                    document.getElementById('paypal-button-pricing').innerHTML = 
-                        '<div style="color:#22c55e; padding:1rem; font-weight:600;">✅ Payment received! Check your email.</div>';
-                });
+        // ===== STRIPE CHECKOUT (client-side) =====
+        const stripe = Stripe('pk_test_51TgQNeBQcg5CrEsQkDQiwGQFTe1fXFHhXFcjNLsiKLRlsFJRVkcsTpdBJYiwQDq41tzI0TMrHbZ8tTu8MnQ8vnUt00PTsQCQyF');
+
+        async function buyNow() {
+            // For client-only Stripe, redirect to a payment link
+            // Replace this URL with your actual Stripe Payment Link once created
+            const paymentLink = 'https://buy.stripe.com/PLACEHOLDER';
+            
+            if (paymentLink.includes('PLACEHOLDER')) {
+                alert('Payment setup in progress. Contact us at contact@example.com to order directly.');
+                return;
             }
-        }).render('#paypal-button-pricing');
-        
-        // Order form: Step 1 → Step 2
+            window.location.href = paymentLink;
+        }
+
+        // Pricing section buy button
+        document.getElementById('buy-pricing').addEventListener('click', buyNow);
+
+        // Order form: collect data → Stripe checkout
         document.getElementById('order-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Collect form data
-            customerData = {
+            const customerData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 business: document.getElementById('business').value,
@@ -678,41 +655,8 @@
                 message: document.getElementById('message').value
             };
             
-            // Hide form, show payment
-            document.getElementById('order-form').style.display = 'none';
-            document.getElementById('payment-section').style.display = 'block';
-            
-            // Render PayPal button in order section
-            paypal.Buttons({
-                style: { layout: 'vertical', color: 'red', shape: 'rect', label: 'pay', height: 50 },
-                createOrder: function(data, actions) {
-                    return actions.order.create({
-                        purchase_units: [{
-                            amount: { value: ORDER_AMOUNT },
-                            description: 'Landing Page - ' + (customerData.type || 'Custom') + ' - ' + (customerData.business || customerData.name),
-                            custom_id: JSON.stringify(customerData)
-                        }]
-                    });
-                },
-                onApprove: function(data, actions) {
-                    return actions.order.capture().then(function(details) {
-                        // Hide payment, show confirmation
-                        document.getElementById('payment-section').style.display = 'none';
-                        document.getElementById('confirmation-section').style.display = 'block';
-                        
-                        // Log order details (replace with actual webhook/email later)
-                        console.log('ORDER COMPLETE:', {
-                            paypal_order_id: data.orderID,
-                            payer: details.payer,
-                            customer: customerData
-                        });
-                    });
-                },
-                onError: function(err) {
-                    console.error('PayPal error:', err);
-                    alert('Payment error. Please try again or contact us.');
-                }
-            }).render('#paypal-button-order');
+            localStorage.setItem('customerData', JSON.stringify(customerData));
+            buyNow();
         });
     </script>
 </body>
