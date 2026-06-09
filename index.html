@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacote Landing Pages Profissionais | 5 Templates Prontos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #e02020;
+            --primary-dark: #b01010;
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --bg-card-hover: #222;
+            --text-primary: #fff;
+            --text-secondary: #999;
+            --border: #333;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0000 50%, #0a0a0a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(224,32,32,0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.5s ease 0.1s both;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.5s ease 0.2s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.5s ease 0.3s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(224,32,32,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            animation: fadeInUp 0.5s ease 0.4s both;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Section */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Templates Grid */
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .template-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .template-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .template-preview {
+            height: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .template-preview::after {
+            content: 'Clique para preview';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .template-card:hover .template-preview::after {
+            transform: translateY(0);
+        }
+
+        .template-info {
+            padding: 1.5rem;
+        }
+
+        .template-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .template-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .template-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-tag {
+            background: rgba(224,32,32,0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .template-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .price-original {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            text-decoration: line-through;
+            margin-right: 0.5rem;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Pricing */
+        .pricing-card {
+            background: var(--bg-card);
+            border: 2px solid var(--primary);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .pricing-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-value {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-value span {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .pricing-original {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            text-decoration: line-through;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            padding: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 200px;
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #1a0000 0%, #0a0a0a 50%, #1a0000 100%);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* WhatsApp */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+            50% { box-shadow: 0 4px 30px rgba(37,211,102,0.6); }
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .templates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">🚀 OFERTA DE LANÇAMENTO</span>
+            <h1>5 Landing Pages <span>Profissionais</span> Prontas Para Seu Negócio</h1>
+            <p>Economize tempo e dinheiro com templates prontos, modernos e otimizados para conversão. Basta personalizar com suas informações e publicar!</p>
+            <div class="hero-cta">
+                <a href="#comprar" class="btn btn-primary">COMPRAR AGORA - R$197</a>
+                <a href="#templates" class="btn btn-secondary">VER TEMPLATES</a>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Templates Prontos</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Responsivo</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24h</div>
+                    <div class="stat-label">Suporte</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates -->
+    <section class="section" id="templates">
+        <div class="section-header">
+            <h2>Templates Inclusos</h2>
+            <p>Cada template foi cuidadosamente projetado para converter visitantes em clientes</p>
+        </div>
+        <div class="templates-grid">
+            <div class="template-card fade-in">
+                <div class="template-preview">🏋️</div>
+                <div class="template-info">
+                    <h3>Coach / Personal Trainer</h3>
+                    <p>Ideal para personal trainers, coaches e profissionais de fitness</p>
+                    <div class="template-features">
+                        <span class="feature-tag">Depoimentos</span>
+                        <span class="feature-tag">Planos</span>
+                        <span class="feature-tag">Agendamento</span>
+                    </div>
+                    <div class="template-price">
+                        <div>
+                            <span class="price-original">R$97</span>
+                            <span class="price">R$39</span>
+                        </div>
+                        <a href="templates/coach/index.html" class="btn btn-secondary" target="_blank">Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="template-card fade-in">
+                <div class="template-preview">🍽️</div>
+                <div class="template-info">
+                    <h3>Restaurante</h3>
+                    <p>Perfeito para restaurantes, pizzarias, hamburguerias e lanchonetes</p>
+                    <div class="template-features">
+                        <span class="feature-tag">Cardápio</span>
+                        <span class="feature-tag">Reservas</span>
+                        <span class="feature-tag">Localização</span>
+                    </div>
+                    <div class="template-price">
+                        <div>
+                            <span class="price-original">R$97</span>
+                            <span class="price">R$39</span>
+                        </div>
+                        <a href="templates/restaurante/index.html" class="btn btn-secondary" target="_blank">Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="template-card fade-in">
+                <div class="template-preview">🦷</div>
+                <div class="template-info">
+                    <h3>Dentista</h3>
+                    <p>Projetado para clínicas odontológicas e dentistas</p>
+                    <div class="template-features">
+                        <span class="feature-tag">Serviços</span>
+                        <span class="feature-tag">Equipe</span>
+                        <span class="feature-tag">Agendamento</span>
+                    </div>
+                    <div class="template-price">
+                        <div>
+                            <span class="price-original">R$97</span>
+                            <span class="price">R$39</span>
+                        </div>
+                        <a href="templates/dentista/index.html" class="btn btn-secondary" target="_blank">Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="template-card fade-in">
+                <div class="template-preview">⚖️</div>
+                <div class="template-info">
+                    <h3>Advogado</h3>
+                    <p>Elegante e profissional para escritórios de advocacia</p>
+                    <div class="template-features">
+                        <span class="feature-tag">Áreas de Atuação</span>
+                        <span class="feature-tag">Casos</span>
+                        <span class="feature-tag">Consulta</span>
+                    </div>
+                    <div class="template-price">
+                        <div>
+                            <span class="price-original">R$97</span>
+                            <span class="price">R$39</span>
+                        </div>
+                        <a href="templates/advogado/index.html" class="btn btn-secondary" target="_blank">Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="template-card fade-in">
+                <div class="template-preview">🏢</div>
+                <div class="template-info">
+                    <h3>Empresa / Corporativo</h3>
+                    <p>Moderno e profissional para empresas de qualquer segmento</p>
+                    <div class="template-features">
+                        <span class="feature-tag">Serviços</span>
+                        <span class="feature-tag">Equipe</span>
+                        <span class="feature-tag">Contato</span>
+                    </div>
+                    <div class="template-price">
+                        <div>
+                            <span class="price-original">R$97</span>
+                            <span class="price">R$39</span>
+                        </div>
+                        <a href="templates/empresa/index.html" class="btn btn-secondary" target="_blank">Preview</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" style="background: var(--bg-card);">
+        <div class="section-header">
+            <h2>O Que Você Recebe</h2>
+            <p>Tudo que precisa para criar landing pages profissionais</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">📱</div>
+                <h3>100% Responsivo</h3>
+                <p>Funciona perfeitamente em celular, tablet e desktop</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">⚡</div>
+                <h3>Carregamento Rápido</h3>
+                <p>Otimizado para velocidade e performance</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎨</div>
+                <h3>Fácil de Personalizar</h3>
+                <p>Basta trocar textos, cores e imagens</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">💬</div>
+                <h3>WhatsApp Integrado</h3>
+                <p>Botão fixo do WhatsApp para contato rápido</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">📝</div>
+                <h3>Formulários Prontos</h3>
+                <p>Formulários de contato que enviam para WhatsApp</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🔍</div>
+                <h3>SEO Otimizado</h3>
+                <p>Estrutura otimizada para mecanismos de busca</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="section-header">
+            <h2>O Que Dizem Nossos Clientes</h2>
+            <p>Veja o que outros profissionais acharam dos templates</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in">
+                <p class="testimonial-text">"Comprei o pacote e em 2 dias já estava com minha landing page no ar. Consegui 3 clientes novos na primeira semana!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">M</div>
+                    <div class="author-info">
+                        <h4>Marcos Silva</h4>
+                        <p>Personal Trainer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <p class="testimonial-text">"Os templates são incríveis! Profissionais, modernos e fáceis de editar. Recomendo para qualquer negócio."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">A</div>
+                    <div class="author-info">
+                        <h4>Ana Santos</h4>
+                        <p>Dentista</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <p class="testimonial-text">"Economizei mais de R$1.000 que gastaria com um designer. O resultado é profissional e os clientes adoraram!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">R</div>
+                    <div class="author-info">
+                        <h4>Roberto Costa</h4>
+                        <p>Advogado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section" id="comprar" style="background: var(--bg-card);">
+        <div class="section-header">
+            <h2>Invista no Seu Negócio</h2>
+            <p>Um único investimento para ter 5 landing pages profissionais</p>
+        </div>
+        <div class="pricing-card fade-in">
+            <span class="pricing-badge">MAIS VENDIDO</span>
+            <h3>Pacote Completo</h3>
+            <div class="pricing-value">R$197 <span>/pagamento único</span></div>
+            <p class="pricing-original">De R$485 por apenas R$197</p>
+            <ul class="pricing-features">
+                <li>5 templates profissionais</li>
+                <li>100% responsivo</li>
+                <li>WhatsApp integrado</li>
+                <li>Formulários funcionais</li>
+                <li>Atualizações gratuitas</li>
+                <li>Suporte por 30 dias</li>
+                <li>Guia de personalização</li>
+            </ul>
+            <a href="https://wa.me/5511999999999?text=Olá! Quero comprar o Pacote de Landing Pages por R$197" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                COMPRAR AGORA
+            </a>
+            <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">
+                Pagamento via PIX, cartão ou boleto
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Perguntas Frequentes</h2>
+            <p>Tire suas dúvidas sobre o pacote</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">Preciso saber programar?</button>
+                <div class="faq-answer">
+                    <p>Não! Os templates são feitos em HTML simples. Basta trocar os textos, imagens e cores usando qualquer editor de texto. Enviamos um guia de personalização junto.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Funciona em qualquer hospedagem?</button>
+                <div class="faq-answer">
+                    <p>Sim! Os templates são arquivos HTML estáticos que funcionam em qualquer hospedagem web, incluindo hospedagens gratuitas como Netlify, Vercel e GitHub Pages.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Posso usar para vários clientes?</button>
+                <div class="faq-answer">
+                    <p>Sim! Você pode usar os templates quantas vezes quiser, para quantos clientes quiser. Não há limite de uso.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Recebo atualizações?</button>
+                <div class="faq-answer">
+                    <p>Sim! Todas as atualizações futuras são gratuitas. Quando adicionarmos novos templates ou melhorias, você recebe automaticamente.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Como funciona o suporte?</button>
+                <div class="faq-answer">
+                    <p>Oferecemos suporte por WhatsApp por 30 dias após a compra. Qualquer dúvida sobre personalização ou uso, é só chamar!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Pronto Para Transformar Seu Negócio?</h2>
+        <p>Junte-se a mais de 100 profissionais que já estão usando nossos templates para atrair mais clientes</p>
+        <a href="#comprar" class="btn btn-primary">QUERO MEU PACOTE AGORA</a>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5511999999999" class="whatsapp-btn" target="_blank">💬</a>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Landing Pages Profissionais. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // FAQ
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
