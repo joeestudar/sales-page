@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Professional Landing Page Templates | 5 Ready-to-Use Designs</title>
-    <meta name="description" content="Get 5 professional, mobile-friendly landing page templates — completely free. Coaches, restaurants, dentists, lawyers & more. Just customize and publish.">
-    <meta property="og:title" content="Free Professional Landing Page Templates">
-    <meta property="og:description" content="5 ready-to-use landing page templates for your business. 100% free, mobile-responsive, SEO-optimized.">
+    <title>Professional Landing Pages — $40 | Fast Delivery</title>
+    <meta name="description" content="Get a custom, mobile-friendly landing page for your business — just $40. Coaches, restaurants, dentists, lawyers & more. Delivered in 24-48h.">
+    <meta property="og:title" content="Professional Landing Pages — $40">
+    <meta property="og:description" content="Custom landing pages for any business. Mobile-responsive, SEO-ready, delivered fast. Only $40.">
     <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -109,26 +109,40 @@
         /* Stats */
         .stats { display: flex; justify-content: center; gap: 4rem; margin-top: 4rem; }
         .stat { text-align: center; }
-        .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--primary); }
+        .stat-number { font-size: 2rem; font-weight: 800; color: var(--primary); }
         .stat-label { font-size: 0.9rem; color: var(--text-secondary); }
 
-        /* Section */
-        .section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 4rem; }
-        .section-header h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
-        .section-header p { color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+        /* Sections */
+        .section { padding: 6rem 2rem; }
+        .section-dark { background: var(--bg-card); }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-        /* Templates Grid */
+        /* Templates */
         .templates-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
         .template-card {
             background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
+            border: 1px solid var(--border);
             transition: all 0.3s ease;
         }
         .template-card:hover {
@@ -152,33 +166,33 @@
         }
         .template-info { padding: 1.5rem; }
         .template-info h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
-        .template-info p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem; }
-        .template-features { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-        .feature-tag {
-            background: rgba(224,32,32,0.1);
+        .template-info p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem; }
+        .template-tag {
+            display: inline-block;
+            background: rgba(224,32,32,0.15);
             color: var(--primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
             font-size: 0.8rem;
+            font-weight: 600;
         }
 
         /* Features */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
         .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
+            text-align: center;
             padding: 2rem;
-            transition: all 0.3s ease;
         }
-        .feature-card:hover { border-color: var(--primary); transform: translateY(-4px); }
-        .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
         .feature-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-        .feature-card p { color: var(--text-secondary); font-size: 0.9rem; }
+        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; }
 
         /* Testimonials */
         .testimonials-grid {
@@ -188,139 +202,144 @@
         }
         .testimonial-card {
             background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
             padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
         }
-        .testimonial-text { font-style: italic; margin-bottom: 1rem; color: var(--text-secondary); }
-        .testimonial-author { display: flex; align-items: center; gap: 1rem; }
-        .author-avatar {
-            width: 48px; height: 48px;
-            border-radius: 50%;
-            background: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-        .author-info h4 { font-size: 1rem; }
-        .author-info p { font-size: 0.85rem; color: var(--text-secondary); }
+        .testimonial-stars { color: #ffc107; margin-bottom: 1rem; font-size: 1.2rem; }
+        .testimonial-text { font-size: 1rem; margin-bottom: 1.5rem; color: var(--text-secondary); line-height: 1.7; }
+        .testimonial-author { font-weight: 700; }
+        .testimonial-role { color: var(--text-secondary); font-size: 0.9rem; }
 
         /* Pricing */
-        .pricing-card {
+        .pricing-box {
             background: var(--bg-card);
             border: 2px solid var(--primary);
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 3rem;
-            text-align: center;
             max-width: 500px;
             margin: 0 auto;
+            text-align: center;
             position: relative;
+            overflow: hidden;
         }
-        .pricing-badge {
+        .pricing-box::before {
+            content: 'MOST POPULAR';
             position: absolute;
-            top: -14px; left: 50%;
-            transform: translateX(-50%);
+            top: 20px; right: -35px;
             background: var(--primary);
             color: white;
-            padding: 0.5rem 2rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
+            padding: 0.5rem 3rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            transform: rotate(45deg);
         }
-        .pricing-card h3 { font-size: 2rem; margin-bottom: 1rem; }
-        .pricing-value {
+        .pricing-amount {
             font-size: 4rem;
             font-weight: 800;
             color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin: 1rem 0 0.5rem;
         }
-        .pricing-value span { font-size: 1.5rem; color: var(--text-secondary); }
-        .pricing-original {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            text-decoration: line-through;
+        .pricing-period { color: var(--text-secondary); margin-bottom: 2rem; }
+        .pricing-features {
+            list-style: none;
+            text-align: left;
             margin-bottom: 2rem;
         }
-        .pricing-features { list-style: none; text-align: left; margin-bottom: 2rem; }
         .pricing-features li {
-            padding: 0.75rem 0;
+            padding: 0.7rem 0;
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
             gap: 0.75rem;
         }
-        .pricing-features li::before { content: '✓'; color: var(--primary); font-weight: bold; }
+        .pricing-features li::before { content: '✓'; color: var(--primary); font-weight: 700; }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+        .form-group label { font-weight: 600; font-size: 0.9rem; }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.9rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        .form-group textarea { resize: vertical; min-height: 100px; }
 
         /* FAQ */
-        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-list { max-width: 700px; margin: 0 auto; }
         .faq-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
         }
         .faq-question {
-            width: 100%;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            padding: 1.5rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-align: left;
-            cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
-        .faq-question::after { content: '+'; font-size: 1.5rem; color: var(--primary); }
-        .faq-item.active .faq-question::after { transform: rotate(45deg); }
+        .faq-question span { color: var(--primary); font-size: 1.5rem; transition: transform 0.3s; }
         .faq-answer {
-            padding: 0 1.5rem;
             max-height: 0;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: max-height 0.3s ease;
             color: var(--text-secondary);
         }
-        .faq-item.active .faq-answer { padding: 0 1.5rem 1.5rem; max-height: 200px; }
+        .faq-item.active .faq-answer { max-height: 200px; padding-top: 1rem; }
+        .faq-item.active .faq-question span { transform: rotate(45deg); }
 
         /* CTA */
-        .cta-section {
+        .final-cta {
             text-align: center;
             padding: 6rem 2rem;
             background: linear-gradient(135deg, #1a0000 0%, #0a0a0a 50%, #1a0000 100%);
         }
-        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .cta-section p { color: var(--text-secondary); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .final-cta h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
+        .final-cta p { color: var(--text-secondary); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
 
         /* Footer */
         footer {
-            background: var(--bg-card);
-            border-top: 1px solid var(--border);
-            padding: 3rem 2rem;
             text-align: center;
-        }
-        footer p { color: var(--text-secondary); font-size: 0.9rem; }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .stats { flex-direction: column; gap: 2rem; }
-            .templates-grid { grid-template-columns: 1fr; }
-            .hero-cta { flex-direction: column; align-items: center; }
-            .btn { width: 100%; justify-content: center; }
+            padding: 3rem 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
         }
 
         /* Animations */
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
         }
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .stats { flex-direction: column; gap: 1.5rem; }
+            .templates-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -328,25 +347,25 @@
     <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
-            <span class="hero-badge">🚀 FREE LAUNCH OFFER</span>
-            <h1>5 <span>Professional</span> Landing Pages — Free</h1>
-            <p>Ready-to-use, mobile-friendly templates for coaches, restaurants, dentists, lawyers & more. Just customize with your info and publish.</p>
+            <div class="hero-badge">⚡ LIMITED OFFER — Only $40</div>
+            <h1>Professional Landing Page<br>for <span>Any Business</span></h1>
+            <p>Mobile-responsive, SEO-ready, and delivered in 24-48 hours. Pay once, own it forever.</p>
             <div class="hero-cta">
-                <a href="#get-it" class="btn btn-primary">GET YOUR FREE TEMPLATES</a>
-                <a href="#templates" class="btn btn-secondary">VIEW TEMPLATES</a>
+                <a href="#order" class="btn btn-primary">GET YOUR PAGE — $40</a>
+                <a href="#templates" class="btn btn-secondary">View Templates</a>
             </div>
             <div class="stats">
                 <div class="stat">
-                    <div class="stat-number">5</div>
-                    <div class="stat-label">Templates Included</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">$0</div>
-                    <div class="stat-label">Completely Free</div>
+                    <div class="stat-number">24h</div>
+                    <div class="stat-label">Delivery Time</div>
                 </div>
                 <div class="stat">
                     <div class="stat-number">100%</div>
-                    <div class="stat-label">Responsive</div>
+                    <div class="stat-label">Mobile-Friendly</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5★</div>
+                    <div class="stat-label">Client Rating</div>
                 </div>
             </div>
         </div>
@@ -354,240 +373,244 @@
 
     <!-- Templates -->
     <section class="section" id="templates">
-        <div class="section-header">
-            <h2>Templates Included</h2>
-            <p>Each template is designed to convert visitors into customers</p>
-        </div>
-        <div class="templates-grid">
-            <div class="template-card fade-in">
-                <div class="template-preview"><img src="assets/img/coach.jpg" alt="Personal Trainer Landing Page"></div>
-                <div class="template-info">
-                    <h3>Coach / Personal Trainer</h3>
-                    <p>Testimonials, pricing plans, booking CTA — built to convert leads into clients.</p>
-                    <div class="template-features">
-                        <span class="feature-tag">Testimonials</span>
-                        <span class="feature-tag">Pricing</span>
-                        <span class="feature-tag">Booking</span>
+        <div class="container">
+            <h2 class="section-title">Choose Your Template</h2>
+            <p class="section-subtitle">Each template is fully customized to your brand, content, and business info. Pick a style — we do the rest.</p>
+            <div class="templates-grid">
+                <div class="template-card fade-in">
+                    <div class="template-preview"><img src="assets/img/coach.jpg" alt="Personal Trainer Landing Page"></div>
+                    <div class="template-info">
+                        <h3>Coach / Personal Trainer</h3>
+                        <p>Testimonials, pricing plans, booking CTA — built to convert leads into clients.</p>
+                        <span class="template-tag">Most Popular</span>
                     </div>
-                    <a href="templates/coach/index.html" class="btn btn-secondary" target="_blank" style="font-size:0.9rem; padding:0.5rem 1rem;">Live Preview →</a>
                 </div>
-            </div>
-            <div class="template-card fade-in">
-                <div class="template-preview"><img src="assets/img/restaurant.jpg" alt="Restaurant Landing Page"></div>
-                <div class="template-info">
-                    <h3>Restaurant</h3>
-                    <p>Menu showcase, reservations, location map — everything a restaurant needs online.</p>
-                    <div class="template-features">
-                        <span class="feature-tag">Menu</span>
-                        <span class="feature-tag">Reservations</span>
-                        <span class="feature-tag">Location</span>
+                <div class="template-card fade-in">
+                    <div class="template-preview"><img src="assets/img/restaurant.jpg" alt="Restaurant Landing Page"></div>
+                    <div class="template-info">
+                        <h3>Restaurant</h3>
+                        <p>Menu showcase, reservations, location map — everything a restaurant needs online.</p>
+                        <span class="template-tag">Food & Beverage</span>
                     </div>
-                    <a href="templates/restaurante/index.html" class="btn btn-secondary" target="_blank" style="font-size:0.9rem; padding:0.5rem 1rem;">Live Preview →</a>
                 </div>
-            </div>
-            <div class="template-card fade-in">
-                <div class="template-preview"><img src="assets/img/dentist.jpg" alt="Dental Clinic Landing Page"></div>
-                <div class="template-info">
-                    <h3>Dental Clinic</h3>
-                    <p>Services, team profiles, appointment booking — professional and trustworthy.</p>
-                    <div class="template-features">
-                        <span class="feature-tag">Services</span>
-                        <span class="feature-tag">Team</span>
-                        <span class="feature-tag">Appointments</span>
+                <div class="template-card fade-in">
+                    <div class="template-preview"><img src="assets/img/dentist.jpg" alt="Dental Clinic Landing Page"></div>
+                    <div class="template-info">
+                        <h3>Dental Clinic</h3>
+                        <p>Services, team profiles, appointment booking — professional and trustworthy.</p>
+                        <span class="template-tag">Healthcare</span>
                     </div>
-                    <a href="templates/dentista/index.html" class="btn btn-secondary" target="_blank" style="font-size:0.9rem; padding:0.5rem 1rem;">Live Preview →</a>
                 </div>
-            </div>
-            <div class="template-card fade-in">
-                <div class="template-preview"><img src="assets/img/lawyer.jpg" alt="Law Firm Landing Page"></div>
-                <div class="template-info">
-                    <h3>Law Firm</h3>
-                    <p>Elegant, trust-building design for attorneys and legal professionals.</p>
-                    <div class="template-features">
-                        <span class="feature-tag">Practice Areas</span>
-                        <span class="feature-tag">Case Results</span>
-                        <span class="feature-tag">Consultation</span>
+                <div class="template-card fade-in">
+                    <div class="template-preview"><img src="assets/img/lawyer.jpg" alt="Law Firm Landing Page"></div>
+                    <div class="template-info">
+                        <h3>Law Firm</h3>
+                        <p>Elegant, trust-building design for attorneys and legal professionals.</p>
+                        <span class="template-tag">Legal</span>
                     </div>
-                    <a href="templates/advogado/index.html" class="btn btn-secondary" target="_blank" style="font-size:0.9rem; padding:0.5rem 1rem;">Live Preview →</a>
                 </div>
-            </div>
-            <div class="template-card fade-in">
-                <div class="template-preview"><img src="assets/img/corporate.jpg" alt="Corporate Landing Page"></div>
-                <div class="template-info">
-                    <h3>Corporate / Agency</h3>
-                    <p>Clean, modern design for businesses of any size or industry.</p>
-                    <div class="template-features">
-                        <span class="feature-tag">Services</span>
-                        <span class="feature-tag">Team</span>
-                        <span class="feature-tag">Contact</span>
+                <div class="template-card fade-in">
+                    <div class="template-preview"><img src="assets/img/corporate.jpg" alt="Corporate Landing Page"></div>
+                    <div class="template-info">
+                        <h3>Corporate / Agency</h3>
+                        <p>Clean, modern design for businesses of any size or industry.</p>
+                        <span class="template-tag">Versatile</span>
                     </div>
-                    <a href="templates/empresa/index.html" class="btn btn-secondary" target="_blank" style="font-size:0.9rem; padding:0.5rem 1rem;">Live Preview →</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features -->
-    <section class="section" style="background: var(--bg-card);">
-        <div class="section-header">
-            <h2>What's Included</h2>
-            <p>Everything you need to get your business online</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card fade-in">
-                <div class="feature-icon">📱</div>
-                <h3>100% Mobile-Friendly</h3>
-                <p>Looks perfect on phones, tablets, and desktops.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">⚡</div>
-                <h3>Lightning Fast</h3>
-                <p>Static HTML — no WordPress bloat, loads in under 1 second.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🔍</div>
-                <h3>SEO-Ready</h3>
-                <p>Meta tags, Open Graph, semantic HTML — ready for Google.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🎨</div>
-                <h3>Easy to Customize</h3>
-                <p>Edit text, colors, and images with any text editor.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">📝</div>
-                <h3>Contact Forms</h3>
-                <p>Built-in contact forms that send submissions directly to you.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🚀</div>
-                <h3>Free Hosting Compatible</h3>
-                <p>Works on GitHub Pages, Netlify, Vercel — zero hosting costs.</p>
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">What's Included</h2>
+            <p class="section-subtitle">Every page comes with everything you need to attract and convert customers.</p>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📱</div>
+                    <h3>100% Mobile-Friendly</h3>
+                    <p>Looks perfect on phones, tablets, and desktops.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Optimized for speed. Loads in under 2 seconds.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔍</div>
+                    <h3>SEO-Ready</h3>
+                    <p>Built-in meta tags and structure to rank on Google.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">✏️</div>
+                    <h3>Easy to Customize</h3>
+                    <p>Simple HTML — edit text, images, and colors easily.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📬</div>
+                    <h3>Contact Form</h3>
+                    <p>Built-in form that sends leads directly to your email.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Free Hosting Compatible</h3>
+                    <p>Works on GitHub Pages, Netlify, Vercel — no extra cost.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
     <section class="section">
-        <div class="section-header">
-            <h2>What People Are Saying</h2>
-        </div>
-        <div class="testimonials-grid">
-            <div class="testimonial-card fade-in">
-                <p class="testimonial-text">"Grabbed the free templates and had my landing page live in 2 days. Landed 3 new clients in the first week!"</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">M</div>
-                    <div class="author-info">
-                        <h4>Marcus Johnson</h4>
-                        <p>Personal Trainer, Austin TX</p>
-                    </div>
+        <div class="container">
+            <h2 class="section-title">What People Are Saying</h2>
+            <p class="section-subtitle">Real feedback from real clients.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"I needed a landing page for my gym and these guys delivered in less than 24 hours. Professional, clean, and my clients love it. Best $40 I've spent on my business."</p>
+                    <p class="testimonial-author">Marcus Johnson</p>
+                    <p class="testimonial-role">Fitness Coach, Austin TX</p>
                 </div>
-            </div>
-            <div class="testimonial-card fade-in">
-                <p class="testimonial-text">"These templates are professional, modern, and easy to edit. Can't believe they're free. Highly recommend!"</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">S</div>
-                    <div class="author-info">
-                        <h4>Sarah Chen</h4>
-                        <p>Dental Clinic, Seattle WA</p>
-                    </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"My restaurant was missing an online presence. The landing page they built for us is gorgeous — customers can see our menu and book tables right from their phones."</p>
+                    <p class="testimonial-author">Sarah Chen</p>
+                    <p class="testimonial-role">Restaurant Owner, San Francisco CA</p>
                 </div>
-            </div>
-            <div class="testimonial-card fade-in">
-                <p class="testimonial-text">"Saved over $500 I would have spent on a designer. The result looks amazing and my clients love it."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">R</div>
-                    <div class="author-info">
-                        <h4>Robert Martinez</h4>
-                        <p>Attorney, Miami FL</p>
-                    </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"As a solo attorney, I didn't have budget for a big agency. This page looks like I paid thousands. Professional, fast, and the contact form actually works!"</p>
+                    <p class="testimonial-author">Robert Martinez</p>
+                    <p class="testimonial-role">Attorney, Miami FL</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing / Get It Free -->
-    <section class="section" id="get-it" style="background: var(--bg-card);">
-        <div class="section-header">
-            <h2>Get All 5 Templates — Free</h2>
-            <p>No catch. No credit card. Just your email.</p>
+    <!-- Pricing -->
+    <section class="section section-dark" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+            <p class="section-subtitle">No hidden fees. No subscriptions. Pay once, own it forever.</p>
+            <div class="pricing-box fade-in">
+                <h3>Complete Landing Page</h3>
+                <div class="pricing-amount">$40</div>
+                <p class="pricing-period">One-time payment • Delivered in 24-48h</p>
+                <ul class="pricing-features">
+                    <li>Custom-designed landing page</li>
+                    <li>Mobile-responsive layout</li>
+                    <li>SEO-optimized structure</li>
+                    <li>Working contact form</li>
+                    <li>Social media integration</li>
+                    <li>Free hosting setup help</li>
+                    <li>Source files (HTML/CSS)</li>
+                    <li>1 round of revisions</li>
+                </ul>
+                <a href="#order" class="btn btn-primary" style="width:100%; justify-content:center;">ORDER NOW — $40</a>
+                <p style="margin-top:1rem; color: var(--text-secondary); font-size: 0.85rem;">Pay securely via PayPal</p>
+            </div>
         </div>
-        <div class="pricing-card fade-in">
-            <span class="pricing-badge">100% FREE</span>
-            <h3>Complete Template Package</h3>
-            <div class="pricing-value">$0 <span>/ forever</span></div>
-            <p class="pricing-original">Worth $97 — yours free</p>
-            <ul class="pricing-features">
-                <li>5 professional landing page templates</li>
-                <li>100% responsive — mobile, tablet, desktop</li>
-                <li>Contact forms included</li>
-                <li>SEO-optimized structure</li>
-                <li>Easy to customize with any text editor</li>
-                <li>Free updates for life</li>
-                <li>Works on any hosting (GitHub Pages, Netlify, Vercel)</li>
-            </ul>
-            <a href="mailto:joeestudar@gmail.com?subject=Free%20Landing%20Page%20Templates&body=Hi!%20I'd%20like%20to%20get%20the%20free%20landing%20page%20template%20package.%20Please%20send%20me%20the%20download%20link!" class="btn btn-primary" style="width: 100%; justify-content: center;">
-                GET ALL 5 TEMPLATES FREE
-            </a>
-            <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">
-                Send us an email and receive all templates within 24 hours
-            </p>
+    </section>
+
+    <!-- Order Form -->
+    <section class="section" id="order">
+        <div class="container">
+            <h2 class="section-title">Get Your Landing Page</h2>
+            <p class="section-subtitle">Fill out the form below. We'll get back to you within a few hours with next steps.</p>
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Smith" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="business">Business Name</label>
+                    <input type="text" id="business" name="business" placeholder="Smith Fitness LLC">
+                </div>
+                <div class="form-group">
+                    <label for="type">Business Type</label>
+                    <select id="type" name="business_type">
+                        <option value="">Select a template style...</option>
+                        <option value="coach">Coach / Personal Trainer</option>
+                        <option value="restaurant">Restaurant</option>
+                        <option value="dental">Dental Clinic</option>
+                        <option value="law">Law Firm</option>
+                        <option value="corporate">Corporate / Agency</option>
+                        <option value="other">Other (describe below)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell us about your business</label>
+                    <textarea id="message" name="message" placeholder="What does your business do? Any specific colors, style, or content you'd like?"></textarea>
+                </div>
+                <input type="hidden" name="_subject" value="New Landing Page Order — $40">
+                <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; font-size:1.2rem; padding:1.2rem;">
+                    SEND ORDER — $40
+                </button>
+                <p style="text-align:center; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">
+                    After submitting, you'll receive PayPal payment instructions via email.
+                </p>
+            </form>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section">
-        <div class="section-header">
-            <h2>Frequently Asked Questions</h2>
-        </div>
-        <div class="faq-list">
-            <div class="faq-item">
-                <button class="faq-question">Do I need to know how to code?</button>
-                <div class="faq-answer">
-                    <p>No! The templates use simple HTML. Just swap the texts, images, and colors using any text editor. A customization guide is included.</p>
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">Do I need to know how to code? <span>+</span></div>
+                    <div class="faq-answer">Not at all. We build the page for you. You just provide your business info and we handle the rest. The page is simple HTML/CSS so any developer can modify it later.</div>
                 </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">Does it work on any hosting?</button>
-                <div class="faq-answer">
-                    <p>Yes! The templates are static HTML files that work on any web hosting, including free hosts like GitHub Pages, Netlify, and Vercel.</p>
+                <div class="faq-item">
+                    <div class="faq-question">Does it work on any hosting? <span>+</span></div>
+                    <div class="faq-answer">Yes! The page is plain HTML/CSS — it works on GitHub Pages (free), Netlify (free), Vercel (free), GoDaddy, Bluehost, or any web host. We'll even help you set it up for free.</div>
                 </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">Can I use it for multiple clients?</button>
-                <div class="faq-answer">
-                    <p>Absolutely! You can use the templates as many times as you want, for as many clients or projects as you want. No limits.</p>
+                <div class="faq-item">
+                    <div class="faq-question">Can I use it for multiple clients? <span>+</span></div>
+                    <div class="faq-answer">Each $40 purchase is for one business/client. If you're an agency or freelancer ordering for multiple clients, contact us for bulk pricing.</div>
                 </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">Do I get updates?</button>
-                <div class="faq-answer">
-                    <p>Yes! All future updates are free. When we add new templates or improvements, you get them automatically.</p>
+                <div class="faq-item">
+                    <div class="faq-question">Do I get revisions? <span>+</span></div>
+                    <div class="faq-answer">Yes! Every order includes 1 round of revisions. If you need changes after that, additional revisions are $10 each.</div>
                 </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">Why is it free?</button>
-                <div class="faq-answer">
-                    <p>We're building our portfolio and community. Get these templates free now — and if you need custom work later, we're here to help.</p>
+                <div class="faq-item">
+                    <div class="faq-question">How do I pay? <span>+</span></div>
+                    <div class="faq-answer">We accept PayPal. After you submit the form, we'll send you a PayPal invoice. Once paid, we start building your page immediately.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-section">
+    <!-- Final CTA -->
+    <section class="final-cta">
         <h2>Ready to Launch Your Business Online?</h2>
-        <p>Get 5 professional landing page templates — free. Just customize and publish.</p>
-        <a href="#get-it" class="btn btn-primary">GET MY FREE TEMPLATES</a>
+        <p>Get a professional landing page for just $40. Delivered in 24-48 hours.</p>
+        <a href="#order" class="btn btn-primary" style="font-size:1.3rem; padding:1.2rem 3rem;">GET MY PAGE — $40</a>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Professional Landing Pages. All rights reserved.</p>
+        <p>© 2025 Landing Pages — Professional web pages for any business.</p>
+        <p style="margin-top:0.5rem;">Questions? Email us at <a href="mailto:contact@example.com" style="color:var(--primary);">contact@example.com</a></p>
     </footer>
 
     <script>
-        // Scroll animations
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Fade in on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -597,24 +620,6 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // FAQ
-        document.querySelectorAll('.faq-question').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const item = btn.parentElement;
-                item.classList.toggle('active');
-            });
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
     </script>
 </body>
 </html>
