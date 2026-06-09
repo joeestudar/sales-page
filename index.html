@@ -508,8 +508,8 @@
                     <li>Source files (HTML/CSS)</li>
                     <li>1 round of revisions</li>
                 </ul>
-                <a href="#order" class="btn btn-primary" style="width:100%; justify-content:center;">ORDER NOW — $40</a>
-                <p style="margin-top:1rem; color: var(--text-secondary); font-size: 0.85rem;">Pay securely via PayPal</p>
+                <div id="paypal-button-pricing"></div>
+                <p style="margin-top:1rem; color: var(--text-secondary); font-size: 0.85rem;">🔒 Secure payment via PayPal • Instant confirmation</p>
             </div>
         </div>
     </section>
@@ -518,8 +518,10 @@
     <section class="section" id="order">
         <div class="container">
             <h2 class="section-title">Get Your Landing Page</h2>
-            <p class="section-subtitle">Fill out the form below. We'll get back to you within a few hours with next steps.</p>
-            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <p class="section-subtitle">Fill in your details, then pay securely with PayPal. We start building immediately after payment.</p>
+            
+            <!-- Step 1: Business Details -->
+            <form class="contact-form" id="order-form">
                 <div class="form-group">
                     <label for="name">Your Name</label>
                     <input type="text" id="name" name="name" placeholder="John Smith" required>
@@ -548,14 +550,29 @@
                     <label for="message">Tell us about your business</label>
                     <textarea id="message" name="message" placeholder="What does your business do? Any specific colors, style, or content you'd like?"></textarea>
                 </div>
-                <input type="hidden" name="_subject" value="New Landing Page Order — $40">
-                <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; font-size:1.2rem; padding:1.2rem;">
-                    SEND ORDER — $40
+                <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; font-size:1.2rem; padding:1.2rem;" id="continue-btn">
+                    CONTINUE TO PAYMENT →
                 </button>
-                <p style="text-align:center; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">
-                    After submitting, you'll receive PayPal payment instructions via email.
-                </p>
             </form>
+            
+            <!-- Step 2: PayPal Payment (hidden until form submitted) -->
+            <div id="payment-section" style="display:none; max-width:500px; margin:2rem auto 0; text-align:center;">
+                <div style="background:var(--bg-card); border:2px solid var(--primary); border-radius:16px; padding:2rem;">
+                    <h3 style="margin-bottom:0.5rem;">🔒 Pay Securely with PayPal</h3>
+                    <p style="color:var(--text-secondary); margin-bottom:1.5rem; font-size:0.95rem;">One-time payment of <strong style="color:var(--primary);">$40 USD</strong></p>
+                    <div id="paypal-button-order"></div>
+                    <p style="color:var(--text-secondary); font-size:0.8rem; margin-top:1rem;">After payment, we'll email you within 2 hours to confirm details.</p>
+                </div>
+            </div>
+            
+            <!-- Step 3: Confirmation (hidden until payment) -->
+            <div id="confirmation-section" style="display:none; max-width:500px; margin:2rem auto 0; text-align:center;">
+                <div style="background:var(--bg-card); border:2px solid #22c55e; border-radius:16px; padding:2rem;">
+                    <div style="font-size:3rem; margin-bottom:1rem;">✅</div>
+                    <h3 style="color:#22c55e; margin-bottom:0.5rem;">Payment Successful!</h3>
+                    <p style="color:var(--text-secondary);">We've received your order. Check your email for confirmation and next steps. Your landing page will be ready in 24-48 hours.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -582,7 +599,7 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">How do I pay? <span>+</span></div>
-                    <div class="faq-answer">We accept PayPal. After you submit the form, we'll send you a PayPal invoice. Once paid, we start building your page immediately.</div>
+                    <div class="faq-answer">We accept PayPal (credit/debit cards accepted too — no PayPal account needed). Just click "Pay Now", complete the payment, and we start building immediately. You'll receive a confirmation email within minutes.</div>
                 </div>
             </div>
         </div>
@@ -601,6 +618,9 @@
         <p style="margin-top:0.5rem;">Questions? Email us at <a href="mailto:contact@example.com" style="color:var(--primary);">contact@example.com</a></p>
     </footer>
 
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD&intent=capture" data-sdk-integration-source="button-factory"></script>
+    
     <script>
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(q => {
@@ -620,6 +640,80 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // ===== PAYPAL INTEGRATION =====
+        const ORDER_AMOUNT = '40.00';
+        let customerData = {};
+        
+        // Render PayPal button in pricing section
+        paypal.Buttons({
+            style: { layout: 'vertical', color: 'red', shape: 'rect', label: 'pay', height: 50 },
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: { value: ORDER_AMOUNT },
+                        description: 'Landing Page - Professional Template'
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Pricing section payment success
+                    document.getElementById('paypal-button-pricing').innerHTML = 
+                        '<div style="color:#22c55e; padding:1rem; font-weight:600;">✅ Payment received! Check your email.</div>';
+                });
+            }
+        }).render('#paypal-button-pricing');
+        
+        // Order form: Step 1 → Step 2
+        document.getElementById('order-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            customerData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                business: document.getElementById('business').value,
+                type: document.getElementById('type').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Hide form, show payment
+            document.getElementById('order-form').style.display = 'none';
+            document.getElementById('payment-section').style.display = 'block';
+            
+            // Render PayPal button in order section
+            paypal.Buttons({
+                style: { layout: 'vertical', color: 'red', shape: 'rect', label: 'pay', height: 50 },
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: { value: ORDER_AMOUNT },
+                            description: 'Landing Page - ' + (customerData.type || 'Custom') + ' - ' + (customerData.business || customerData.name),
+                            custom_id: JSON.stringify(customerData)
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        // Hide payment, show confirmation
+                        document.getElementById('payment-section').style.display = 'none';
+                        document.getElementById('confirmation-section').style.display = 'block';
+                        
+                        // Log order details (replace with actual webhook/email later)
+                        console.log('ORDER COMPLETE:', {
+                            paypal_order_id: data.orderID,
+                            payer: details.payer,
+                            customer: customerData
+                        });
+                    });
+                },
+                onError: function(err) {
+                    console.error('PayPal error:', err);
+                    alert('Payment error. Please try again or contact us.');
+                }
+            }).render('#paypal-button-order');
+        });
     </script>
 </body>
 </html>
